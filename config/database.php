@@ -92,12 +92,12 @@ return [
         ],
 
         //添加 MongoDB 的数据库的信息:
-        'mongodb' => [    
-            'driver'   => 'mongodb',    
-            'host'     => 'localhost',    
-            'port'     => 27017,    
-            'database' => 'test',    
-            'username' => '',    
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            'host'     => 'localhost',
+            'port'     => 27017,
+            'database' => env('MONGODB_DB', 'test'),
+            'username' => '',
             'password' => '',
         ],
 

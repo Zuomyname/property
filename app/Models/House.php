@@ -11,4 +11,6 @@ class House extends Model
 
     protected $connection = 'mongodb';
     protected $table = 'properties';
+
+    protected $guarded= [];
 }

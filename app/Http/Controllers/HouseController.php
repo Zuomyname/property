@@ -47,25 +47,60 @@ class HouseController extends Controller
     public function add(Request $request)
     {
         $params = $request->all();
-        $findOne = House::where('externalId', $params['id'])->first();
-        $validate = $request->validate([]);
-        if ($findOne) {
-            return response()->json([
-                'code' => 200,
-                'message' => 'id',
-                'data' => $params['id']
-            ]);
-        }
+//        $findOne = House::where('externalId', $params['externalId'])->first();
+//        if ($findOne) {
+//            return response()->json([
+//                'code' => 200,
+//                'message' => 'id',
+//                'data' => $params['id']
+//            ]);
+//        }
         $data = [
-            'city' => '',
-            'latitude' => '',
-            'longitude' => '',
-            'rent' => '',
-            'externalId' => '',
-            'coverImageUrl' => ''
+            'externalId' => $params['externalId'],
+            'areaRaw' => $params['areaRaw'],
+            'areaSqm' => $params['areaSqm'],
+            'city' => $params['city'],
+            'furnish' => $params['furnish'],
+            'latitude' => $params['latitude'],
+            'longitude' => $params['longitude'],
+            'postalCode' => $params['postalCode'],
+            'postedAgo' => $params['postedAgo'],
+            'propertyType' => $params['propertyType'],
+            'rawAvailability' => $params['rawAvailability'],
+            'rent' => $params['rent'],
+            'rentDetail' => $params['rentDetail'],
+            'rentRaw' => $params['rentRaw'],
+            'title' => $params['title'],
+            'additionalCostsRaw' => $params['additionalCostsRaw'],
+            'deposit' => $params['deposit'],
+            'depositRaw' => $params['depositRaw'],
+            'descriptionNonTranslated' => $params['descriptionNonTranslated'],
+            'descriptionNonTranslatedRaw' => $params['descriptionNonTranslatedRaw'] ?? "",
+            'descriptionTranslated' => $params['descriptionTranslated'],
+            'descriptionTranslatedRaw' => $params['descriptionTranslatedRaw'] ?? "",
+            'energyLabel' => $params['energyLabel'],
+            'gender' => $params['gender'],
+            'internet' => $params['internet'],
+            'isRoomActive' => $params['isRoomActive'],
+            'kitchen' => $params['kitchen'],
+            'living' => $params['living'],
+            'matchAge' => $params['matchAge'],
+            'matchCapacity' => $params['matchCapacity'],
+            'matchGender' => $params['matchGender'],
+            'matchLanguages' => $params['matchLanguages'],
+            'matchStatus' => $params['matchStatus'],
+            'pageDescription' => $params['pageDescription'],
+            'pageTitle' => $params['pageTitle'],
+            'pets' => $params['pets'],
+            'registrationCostRaw' => $params['registrationCostRaw'],
+            'roommates' => $params['roommates'],
+            'shower' => $params['shower'],
+            'smokingInside' => $params['smokingInside'],
+            'toilet' => $params['toilet'],
         ];
-//        dd($data);
-//        return null;
+
+        House::create($data);
+        return redirect('/');
     }
 
     public function edit($id)
@@ -77,29 +112,57 @@ class HouseController extends Controller
     public function update(Request $request)
     {
         $params = $request->all();
-        $id = $params['id'];
+        $id = $params['externalId'];
         $data = [
-            'city' => 'test11'
+            'areaRaw' => $params['areaRaw'],
+            'areaSqm' => $params['areaSqm'],
+            'city' => $params['city'],
+            'furnish' => $params['furnish'],
+            'latitude' => $params['latitude'],
+            'longitude' => $params['longitude'],
+            'postalCode' => $params['postalCode'],
+            'postedAgo' => $params['postedAgo'],
+            'propertyType' => $params['propertyType'],
+            'rawAvailability' => $params['rawAvailability'],
+            'rent' => $params['rent'],
+            'rentDetail' => $params['rentDetail'],
+            'rentRaw' => $params['rentRaw'],
+            'title' => $params['title'],
+            'additionalCostsRaw' => $params['additionalCostsRaw'],
+            'deposit' => $params['deposit'],
+            'depositRaw' => $params['depositRaw'],
+            'descriptionNonTranslated' => $params['descriptionNonTranslated'],
+            'descriptionNonTranslatedRaw' => $params['descriptionNonTranslatedRaw'] ?? '',
+            'descriptionTranslated' => $params['descriptionTranslated'],
+            'descriptionTranslatedRaw' => $params['descriptionTranslatedRaw'] ?? '',
+            'energyLabel' => $params['energyLabel'],
+            'gender' => $params['gender'],
+            'internet' => $params['internet'],
+            'isRoomActive' => $params['isRoomActive'],
+            'kitchen' => $params['kitchen'],
+            'living' => $params['living'],
+            'matchAge' => $params['matchAge'],
+            'matchCapacity' => $params['matchCapacity'],
+            'matchGender' => $params['matchGender'],
+            'matchLanguages' => $params['matchLanguages'],
+            'matchStatus' => $params['matchStatus'],
+            'pageDescription' => $params['pageDescription'],
+            'pageTitle' => $params['pageTitle'],
+            'pets' => $params['pets'],
+            'registrationCostRaw' => $params['registrationCostRaw'],
+            'roommates' => $params['roommates'],
+            'shower' => $params['shower'],
+            'smokingInside' => $params['smokingInside'],
+            'toilet' => $params['toilet'],
         ];
         House::where('externalId', $id)->update($data);
 
         return redirect('/');
     }
 
-    public function delete(Request $request)
+    public function delete($id)
     {
-        $del = DB::connection("mongodb")
-            ->table("properties")
-            ->where("externalId", $request->get("id"))
-            ->destory();
-        if ($del) {
-            return response()->json([
-                'code' => 200,
-                'data' => [],
-                'message' => 'delete success!'
-            ]);
-        }
-
-        return redirect('index.index');
+        House::where("externalId", $id)->delete();
+        return redirect('/');
     }
 }

@@ -18,4 +18,4 @@ Route::get("/create", [HouseController::class, "create"]);
 Route::post("/create", [HouseController::class, "add"]);
 Route::get("/edit/{id}", [HouseController::class, "edit"]);
 Route::put("/edit", [HouseController::class, "update"]);
-Route::delete("/delete", [HouseController::class, "delete"]);
+Route::delete("/delete/{id}", [HouseController::class, "delete"]);

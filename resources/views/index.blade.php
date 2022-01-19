@@ -63,8 +63,13 @@
                 </select>
             </div>
             <div class="form-group">
+                <select class="form-control">
+                    <option value="">by rent cost</option>
+                    <option value="">by cost per square weter</option>
+                    <option value="">by description statistics</option>
+                </select>
                 {{--            <label for="id">Name</label>--}}
-                <input type="text" class="form-control" name="list_type"  @if(isset($params['list_type'])) value="{{ $params['list_type'] }}" @endif placeholder="please enter list_type">
+{{--                <input type="text" class="form-control" name="list_type"  @if(isset($params['list_type'])) value="{{ $params['list_type'] }}" @endif placeholder="please enter list_type">--}}
             </div>
             <button type="submit" class="btn btn-default">Search</button>
             <form action="create" method="get">
@@ -82,25 +87,106 @@
                     <div class="col-md-8">
                         <div class="card-body" style="width: 100%">
                             <p class="card-text">
-                                ID: {{ $list->externalId }}
+                                externalId: {{ $list->externalId }}
                             </p>
                             <p class="card-text">
-                                Location: {{ $list->rawAvailability }}
+                                title: {{ $list->title }}
                             </p>
                             <p class="card-text">
-                                City: {{ $list->city }}
+                                areaRaw: {{ $list->areaRaw }}
                             </p>
                             <p class="card-text">
-                                Description: {{ $list->pageDescription }}
+                                city: {{ $list->city }}
                             </p>
                             <p class="card-text">
-                                Pet: {{ $list->pets }}
+                                latitude: {{ $list->latitude }}
                             </p>
                             <p class="card-text">
-                                rent: {{ $list->rent }}
+                                longitude: {{ $list->longitude }}
                             </p>
                             <p class="card-text">
-                                deposit: {{ $list->deposit ?? 'no' }}
+                                postalCode: {{ $list->postalCode }}
+                            </p>
+                            <p class="card-text">
+                                postedAgo: {{ $list->postedAgo }}
+                            </p>
+                            <p class="card-text">
+                                propertyType: {{ $list->propertyType }}
+                            </p>
+                            <p class="card-text">
+                                rawAvailability: {{ $list->rawAvailability }}
+                            </p>
+                            <p class="card-text">
+                                rentDetail: {{$list->rentDetail}}
+                            </p>
+                            <p class="card-text">
+                                rentRaw: {{ $list->rentRaw }}
+                            </p>
+                            <p class="card-text">
+                                additionalCostsRaw: {{ $list->additionalCostsRaw }}
+                            </p>
+                            <p class="card-text">
+                                descriptionNonTranslated: {{ $list->descriptionNonTranslated }}
+                            </p>
+                            <p class="card-text">
+                                descriptionTranslated: {{ $list->descriptionTranslated }}
+                            </p>
+                            <p class="card-text">
+                                energyLabel: {{ $list->energyLabel}}
+                            </p>
+                            <p class="card-text">
+                                gender: {{ $list->gender}}
+                            </p>
+                            <p class="card-text">
+                                internet: {{ $list->internet}}
+                            </p>
+                            <p class="card-text">
+                                isRoomActive: {{ $list->isRoomActive}}
+                            </p>
+                            <p class="card-text">
+                                kitchen: {{ $list->kitchen}}
+                            </p>
+                            <p class="card-text">
+                                living: {{ $list->living}}
+                            </p>
+                            <p class="card-text">
+                                matchAge: {{ $list->matchAge}}
+                            </p>
+                            <p class="card-text">
+                                matchCapacity: {{ $list->matchCapacity}}
+                            </p>
+                            <p class="card-text">
+                                matchGender: {{ $list->matchGender}}
+                            </p>
+                            <p class="card-text">
+                                matchLanguages: {{ $list->matchLanguages}}
+                            </p>
+                            <p class="card-text">
+                                matchStatus: {{ $list->matchStatus}}
+                            </p>
+                            <p class="card-text">
+                                pageDescription: {{ $list->pageDescription}}
+                            </p>
+                            <p class="card-text">
+                                pageTitle: {{ $list->pageTitle}}
+                            </p>
+                            <p class="card-text">
+                                pets: {{ $list->pets}}
+                            </p>
+                            <p class="card-text">
+                                registrationCostRaw: {{ $list->registrationCostRaw}}
+                            </p>
+                            <p class="card-text">
+                                roommates: {{ $list->roommates}}
+                            </p>
+                            <p class="card-text">
+                                shower: {{ $list->shower}}
+                            </p>
+                            <p class="card-text">
+                                smokingInside: {{ $list->smokingInside}}
+                            </p>
+                            <p class="card-text">
+                                toilet: {{ $list->toilet}}
                             </p>
                         </div>
                         <div class="col-md-3">
@@ -109,7 +195,9 @@
                             </form>
                         </div>
                         <div class="col-md-3">
-                            <form action="">
+                            <form action="delete/{{ $list->externalId }}" method="post">
+                                <input name="_method" type="hidden" value="DELETE">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </div>
@@ -120,7 +208,7 @@
 
     </div>
     @endforeach
-    <div class="row">
+    <div class="row" style="margin: 20px;float: right">
         {{ $lists->links() }}
     </div>
 </div>

@@ -20,45 +20,172 @@
 </head>
 <body>
 <div class="container">
-    <div class="form">
+    <div class="col-md-4">
+        <img src="{{ $list->coverImageUrl ?? 'https://resources.kamernet.nl/Content/images/placeholder/no-pic-advert.png' }}" class="card-img" style="height:200px;width: 100%;margin: 10px">
+        <img src="{{ $list->url ?? 'https://resources.kamernet.nl/Content/images/placeholder/no-pic-advert.png' }}" class="card-img" style="height:200px;width: 100%;margin: 10px">
+        <img src="{{ $list->userPhotoUrl ?? 'https://resources.kamernet.nl/Content/images/placeholder/no-pic-advert.png' }}" class="card-img" style="height:200px;width: 100%;margin: 10px">
+        <img src="{{ $list->coverImageUrl ?? 'https://resources.kamernet.nl/Content/images/placeholder/no-pic-advert.png' }}" class="card-img" style="height:200px;width: 100%;margin: 10px">
+    </div>
+    <div class="form col-md-8">
         <form action="/edit" method="post">
             <input name="_method" type="hidden" value="PUT">
             <input name="_token" type="hidden" value="{{ csrf_token() }}">
             <div class="form-group">
-                <label for="id">Name</label>
-                <input type="text" class="form-control" name="id" value="{{ $list->title }}">
+                <label for="id">externalId</label>
+                <input type="text" id="externalId" class="form-control" name="externalId"
+                       value="{{ $list->externalId }}">
             </div>
             <div class="form-group">
-                <label for="id">Name</label>
-                <input type="text" class="form-control" name="latitude" placeholder="latitude">
+                <label for="id">areaRaw</label>
+                <input type="text" class="form-control" name="areaRaw" value={{ $list->areaRaw}}>
             </div>
             <div class="form-group">
-                <label for="id">Name</label>
-                <input type="text" class="form-control" name="longitude" placeholder="longitude">
+                <label for="id">areaSqm</label>
+                <input type="text" class="form-control" name="areaSqm" value={{ $list->areaSqm}}>
             </div>
             <div class="form-group">
-                <label for="id">Name</label>
-                <input type="text" class="form-control" name="city" placeholder="please enter city">
+                <label for="id">city</label>
+                <input type="text" class="form-control" name="city" value={{ $list->city}}>
             </div>
             <div class="form-group">
-                <label for="id">Name</label>
-                <input type="text" class="form-control" name="is_active" placeholder="please enter is_active">
+                <label for="id">furnish</label>
+                <input type="text" class="form-control" name="furnish" value={{ $list->furnish}}>
             </div>
             <div class="form-group">
-                <label for="id">Name</label>
-                <input type="text" class="form-control" name="min" placeholder="please enter min">
+                <label for="id">latitude</label>
+                <input type="text" class="form-control" name="latitude" value={{ $list->latitude}}>
             </div>
             <div class="form-group">
-                <label for="id">Name</label>
-                <input type="text" class="form-control" name="max" placeholder="please enter max">
+                <label for="id">longitude</label>
+                <input type="text" class="form-control" name="longitude" value={{ $list->longitude}}>
             </div>
             <div class="form-group">
-                <label for="id">Name</label>
-                <input type="text" class="form-control" name="order" placeholder="please enter order">
+                <label for="id">postalCode</label>
+                <input type="text" class="form-control" name="postalCode" value={{ $list->postalCode}}>
             </div>
             <div class="form-group">
-                <label for="id">Name</label>
-                <input type="text" class="form-control" name="list_type" placeholder="please enter list_type">
+                <label for="id">postedAgo</label>
+                <input type="text" class="form-control" name="postedAgo" value={{ $list->postedAgo}}>
+            </div>
+            <div class="form-group">
+                <label for="id">propertyType</label>
+                <input type="text" class="form-control" name="propertyType" value={{ $list->propertyType}}>
+            </div>
+            <div class="form-group">
+                <label for="id">rawAvailability</label>
+                <input type="text" class="form-control" name="rawAvailability" value={{ $list->rawAvailability}}>
+            </div>
+            <div class="form-group">
+                <label for="id">rent</label>
+                <input type="text" class="form-control" name="rent" value={{ $list->rent}}>
+            </div>
+            <div class="form-group">
+                <label for="id">rentDetail</label>
+                <input type="text" class="form-control" name="rentDetail" value={{ $list->rentDetail}}>
+            </div>
+            <div class="form-group">
+                <label for="id">rentRaw</label>
+                <input type="text" class="form-control" name="rentRaw" value={{ $list->rentRaw}}>
+            </div>
+            <div class="form-group">
+                <label for="id">title</label>
+                <input type="text" class="form-control" name="title" value={{ $list->title}}>
+            </div>
+            <div class="form-group">
+                <label for="id">additionalCostsRaw</label>
+                <input type="text" class="form-control" name="additionalCostsRaw" value={{ $list->additionalCostsRaw}}>
+            </div>
+            <div class="form-group">
+                <label for="id">deposit</label>
+                <input type="text" class="form-control" name="deposit" value={{ $list->deposit}}>
+            </div>
+            <div class="form-group">
+                <label for="id">depositRaw</label>
+                <input type="text" class="form-control" name="depositRaw" value={{ $list->depositRaw}}>
+            </div>
+            <div class="form-group">
+                <label for="id">descriptionNonTranslated</label>
+                <input type="text" class="form-control" name="descriptionNonTranslated" value={{ $list->descriptionNonTranslated}}>
+            </div>
+            <div class="form-group">
+                <label for="id">descriptionTranslated</label>
+                <input type="text" class="form-control" name="descriptionTranslated" value={{ $list->descriptionTranslated}}>
+            </div>
+            <div class="form-group">
+                <label for="id">energyLabel</label>
+                <input type="text" class="form-control" name="energyLabel" value={{ $list->energyLabel}}>
+            </div>
+            <div class="form-group">
+                <label for="id">gender</label>
+                <input type="text" class="form-control" name="gender" value={{ $list->gender}}>
+            </div>
+            <div class="form-group">
+                <label for="id">internet</label>
+                <input type="text" class="form-control" name="internet" value={{ $list->internet}}>
+            </div>
+            <div class="form-group">
+                <label for="id">isRoomActive</label>
+                <input type="text" class="form-control" name="isRoomActive" value={{ $list->isRoomActive}}>
+            </div>
+            <div class="form-group">
+                <label for="id">kitchen</label>
+                <input type="text" class="form-control" name="kitchen" value={{ $list->kitchen}}>
+            </div>
+            <div class="form-group">
+                <label for="id">living</label>
+                <input type="text" class="form-control" name="living" value={{ $list->living}}>
+            </div>
+            <div class="form-group">
+                <label for="id">matchAge</label>
+                <input type="text" class="form-control" name="matchAge" value={{ $list->matchAge}}>
+            </div>
+            <div class="form-group">
+                <label for="id">matchCapacity</label>
+                <input type="text" class="form-control" name="matchCapacity" value={{ $list->matchCapacity}}>
+            </div>
+            <div class="form-group">
+                <label for="id">matchGender</label>
+                <input type="text" class="form-control" name="matchGender" value={{ $list->matchGender}}>
+            </div>
+            <div class="form-group">
+                <label for="id">matchLanguages</label>
+                <input type="text" class="form-control" name="matchLanguages" value={{ $list->matchLanguages}}>
+            </div>
+            <div class="form-group">
+                <label for="id">matchStatus</label>
+                <input type="text" class="form-control" name="matchStatus" value={{ $list->matchStatus}}>
+            </div>
+            <div class="form-group">
+                <label for="id">pageDescription</label>
+                <input type="text" class="form-control" name="pageDescription" value={{ $list->pageDescription}}>
+            </div>
+            <div class="form-group">
+                <label for="id">pageTitle</label>
+                <input type="text" class="form-control" name="pageTitle" value={{ $list->pageTitle}}>
+            </div>
+            <div class="form-group">
+                <label for="id">pets</label>
+                <input type="text" class="form-control" name="pets" value={{ $list->pets}}>
+            </div>
+            <div class="form-group">
+                <label for="id">registrationCostRaw</label>
+                <input type="text" class="form-control" name="registrationCostRaw" value={{ $list->registrationCostRaw}}>
+            </div>
+            <div class="form-group">
+                <label for="id">roommates</label>
+                <input type="text" class="form-control" name="roommates" value={{ $list->roommates}}>
+            </div>
+            <div class="form-group">
+                <label for="id">shower</label>
+                <input type="text" class="form-control" name="shower" value={{ $list->shower}}>
+            </div>
+            <div class="form-group">
+                <label for="id">smokingInside</label>
+                <input type="text" class="form-control" name="smokingInside" value={{ $list->smokingInside}}>
+            </div>
+            <div class="form-group">
+                <label for="id">toilet</label>
+                <input type="text" class="form-control" name="toilet" value={{ $list->toilet}}>
             </div>
             <button type="submit" class="btn btn-default">Update</button>
         </form>

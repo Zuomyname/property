@@ -31,36 +31,157 @@
 {{--            @enderror--}}
             <input name="_token" type="hidden" value="{{ csrf_token() }}">
             <div class="form-group">
-                <label for="id">ID</label>
-                <input type="text" id="id" class="form-control" name="id" placeholder="please enter ID">
+                <label for="id">externalId</label>
+                <input type="text" id="externalId" class="form-control" name="externalId" placeholder="please enter externalId">
             </div>
             <div class="form-group">
-                <label for="id">latitude</label>
-                <input type="text" class="form-control" name="latitude" placeholder="latitude">
+                <label for="id">areaRaw</label>
+                <input type="text" class="form-control" name="areaRaw" placeholder="areaRaw">
             </div>
             <div class="form-group">
-                <label for="id">longitude</label>
-                <input type="text" class="form-control" name="longitude" placeholder="longitude">
+                <label for="id">areaSqm</label>
+                <input type="text" class="form-control" name="areaSqm" placeholder="areaSqm">
             </div>
             <div class="form-group">
                 <label for="id">city</label>
                 <input type="text" class="form-control" name="city" placeholder="please enter city">
             </div>
             <div class="form-group">
-                <label for="id">is_active</label>
-                <input type="text" class="form-control" name="is_active" placeholder="please enter is_active">
+                <label for="id">furnish</label>
+                <input type="text" class="form-control" name="furnish" placeholder="please enter furnish">
             </div>
             <div class="form-group">
-                <label for="id">min</label>
-                <input type="text" class="form-control" name="min" placeholder="please enter min">
+                <label for="id">latitude</label>
+                <input type="text" class="form-control" name="latitude" placeholder="please enter latitude">
             </div>
             <div class="form-group">
-                <label for="id">max</label>
-                <input type="text" class="form-control" name="max" placeholder="please enter max">
+                <label for="id">longitude</label>
+                <input type="text" class="form-control" name="longitude" placeholder="please enter longitude">
             </div>
             <div class="form-group">
-                <label for="id">list_type</label>
-                <input type="text" class="form-control" name="list_type" placeholder="please enter list_type">
+                <label for="id">postalCode</label>
+                <input type="text" class="form-control" name="postalCode" placeholder="please enter postalCode">
+            </div>
+            <div class="form-group">
+                <label for="id">postedAgo</label>
+                <input type="text" class="form-control" name="postedAgo" placeholder="please enter postedAgo">
+            </div>
+            <div class="form-group">
+                <label for="id">propertyType</label>
+                <input type="text" class="form-control" name="propertyType" placeholder="please enter propertyType">
+            </div>
+            <div class="form-group">
+                <label for="id">rawAvailability</label>
+                <input type="text" class="form-control" name="rawAvailability" placeholder="please enter rawAvailability">
+            </div>
+            <div class="form-group">
+                <label for="id">rent</label>
+                <input type="text" class="form-control" name="rent" placeholder="please enter rent">
+            </div>
+            <div class="form-group">
+                <label for="id">rentDetail</label>
+                <input type="text" class="form-control" name="rentDetail" placeholder="please enter rentDetail">
+            </div>
+            <div class="form-group">
+                <label for="id">rentRaw</label>
+                <input type="text" class="form-control" name="rentRaw" placeholder="please enter rentRaw">
+            </div>
+            <div class="form-group">
+                <label for="id">title</label>
+                <input type="text" class="form-control" name="title" placeholder="please enter title">
+            </div>
+            <div class="form-group">
+                <label for="id">additionalCostsRaw</label>
+                <input type="text" class="form-control" name="additionalCostsRaw" placeholder="please enter additionalCostsRaw">
+            </div><div class="form-group">
+                <label for="id">deposit</label>
+                <input type="text" class="form-control" name="deposit" placeholder="please enter deposit">
+            </div><div class="form-group">
+                <label for="id">depositRaw</label>
+                <input type="text" class="form-control" name="depositRaw" placeholder="please enter depositRaw">
+            </div>
+            <div class="form-group">
+                <label for="id">descriptionNonTranslated</label>
+                <input type="text" class="form-control" name="descriptionNonTranslated" placeholder="please enter descriptionNonTranslated">
+            </div>
+            <div class="form-group">
+                <label for="id">descriptionTranslated</label>
+                <input type="text" class="form-control" name="descriptionTranslated" placeholder="please enter descriptionTranslated">
+            </div>
+            <div class="form-group">
+                <label for="id">energyLabel</label>
+                <input type="text" class="form-control" name="energyLabel" placeholder="please enter energyLabel">
+            </div>
+            <div class="form-group">
+                <label for="id">gender</label>
+                <input type="text" class="form-control" name="gender" placeholder="please enter gender">
+            </div>
+            <div class="form-group">
+                <label for="id">internet</label>
+                <input type="text" class="form-control" name="internet" placeholder="please enter internet">
+            </div>
+            <div class="form-group">
+                <label for="id">isRoomActive</label>
+                <input type="text" class="form-control" name="isRoomActive" placeholder="please enter isRoomActive">
+            </div>
+            <div class="form-group">
+                <label for="id">kitchen</label>
+                <input type="text" class="form-control" name="kitchen" placeholder="please enter kitchen">
+            </div>
+            <div class="form-group">
+                <label for="id">living</label>
+                <input type="text" class="form-control" name="living" placeholder="please enter living">
+            </div>
+            <div class="form-group">
+                <label for="id">matchAge</label>
+                <input type="text" class="form-control" name="matchAge" placeholder="please enter matchAge">
+            </div>
+            <div class="form-group">
+                <label for="id">matchCapacity</label>
+                <input type="text" class="form-control" name="matchCapacity" placeholder="please enter matchCapacity">
+            </div>
+            <div class="form-group">
+                <label for="id">matchGender</label>
+                <input type="text" class="form-control" name="matchGender" placeholder="please enter matchGender">
+            </div>
+            <div class="form-group">
+                <label for="id">matchLanguages</label>
+                <input type="text" class="form-control" name="matchLanguages" placeholder="please enter matchLanguages">
+            </div> <div class="form-group">
+                <label for="id">matchStatus</label>
+                <input type="text" class="form-control" name="matchStatus" placeholder="please enter matchStatus">
+            </div>
+            <div class="form-group">
+                <label for="id">pageDescription</label>
+                <input type="text" class="form-control" name="pageDescription" placeholder="please enter pageDescription">
+            </div>
+            <div class="form-group">
+                <label for="id">pageTitle</label>
+                <input type="text" class="form-control" name="pageTitle" placeholder="please enter pageTitle">
+            </div>
+            <div class="form-group">
+                <label for="id">pets</label>
+                <input type="text" class="form-control" name="pets" placeholder="please enter pets">
+            </div>
+            <div class="form-group">
+                <label for="id">registrationCostRaw</label>
+                <input type="text" class="form-control" name="registrationCostRaw" placeholder="please enter registrationCostRaw">
+            </div>
+            <div class="form-group">
+                <label for="id">roommates</label>
+                <input type="text" class="form-control" name="roommates" placeholder="please enter roommates">
+            </div>
+            <div class="form-group">
+                <label for="id">shower</label>
+                <input type="text" class="form-control" name="shower" placeholder="please enter shower">
+            </div>
+            <div class="form-group">
+                <label for="id">smokingInside</label>
+                <input type="text" class="form-control" name="smokingInside" placeholder="please enter smokingInside">
+            </div>
+            <div class="form-group">
+                <label for="id">toilet</label>
+                <input type="text" class="form-control" name="toilet" placeholder="please enter toilet">
             </div>
             <button type="submit" id='btn' class="btn btn-default">Add</button>
         </form>
