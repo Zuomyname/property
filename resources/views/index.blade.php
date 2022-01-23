@@ -29,47 +29,73 @@
         <form action="/" method="get" class="form-inline">
             <div class="form-group">
                 {{--            <label for="id">Name</label>--}}
-                <input type="text" class="form-control" name="id" @if(isset($params['id'])) value="{{ $params['id'] }}" @endif placeholder="please enter ID">
+                <input type="text" class="form-control" name="id" @if(isset($params['id'])) value="{{ $params['id'] }}"
+                       @endif placeholder="please enter ID">
             </div>
             <div class="form-group">
                 {{--            <label for="id">Name</label>--}}
-                <input type="text" class="form-control" name="latitude" @if(isset($params['latitude'])) value="{{ $params['latitude'] }}" @endif placeholder="latitude">
+                <input type="text" class="form-control" name="latitude"
+                       @if(isset($params['latitude'])) value="{{ $params['latitude'] }}" @endif placeholder="latitude">
             </div>
             <div class="form-group">
                 {{--            <label for="id">Name</label>--}}
-                <input type="text" class="form-control" name="longitude"  @if(isset($params['longitude'])) value="{{ $params['longitude'] }}" @endif placeholder="longitude">
+                <input type="text" class="form-control" name="top"
+                       @if(isset($params['top'])) value="{{ $params['top'] }}" @endif placeholder="top">
             </div>
             <div class="form-group">
                 {{--            <label for="id">Name</label>--}}
-                <input type="text" class="form-control" name="city"  @if(isset($params['city'])) value="{{ $params['city'] }}" @endif placeholder="please enter city">
+                <input type="text" class="form-control" name="longitude"
+                       @if(isset($params['longitude'])) value="{{ $params['longitude'] }}"
+                       @endif placeholder="longitude">
             </div>
             <div class="form-group">
                 {{--            <label for="id">Name</label>--}}
-                <input type="text" class="form-control" name="is_active"  @if(isset($params['is_active'])) value="{{ $params['is_active'] }}" @endif placeholder="please enter is_active">
+                <input type="text" class="form-control" name="city"
+                       @if(isset($params['city'])) value="{{ $params['city'] }}" @endif placeholder="please enter city">
             </div>
             <div class="form-group">
                 {{--            <label for="id">Name</label>--}}
-                <input type="text" class="form-control" name="min"  @if(isset($params['min'])) value="{{ $params['min'] }}" @endif placeholder="please enter min">
+                <select class="form-control" name="is_active">
+                    <option value="0"> select active status</option>
+                    <option value="true"
+                            @if(isset($params['is_active']) && $params['is_active'] == 'true') selected @endif>true
+                    </option>
+                    <option value="false"
+                            @if(isset($params['is_active']) && $params['is_active'] == 'false') selected @endif>false
+                    </option>
+                </select>
+                {{--                <input type="text" class="form-control" name="is_active"  @if(isset($params['is_active'])) value="{{ $params['is_active'] }}" @endif placeholder="please enter is_active">--}}
             </div>
             <div class="form-group">
                 {{--            <label for="id">Name</label>--}}
-                <input type="text" class="form-control" name="max"  @if(isset($params['max'])) value="{{ $params['max'] }}" @endif placeholder="please enter max">
+                <input type="text" class="form-control" name="min"
+                       @if(isset($params['min'])) value="{{ $params['min'] }}" @endif placeholder="please enter min">
+            </div>
+            <div class="form-group">
+                {{--            <label for="id">Name</label>--}}
+                <input type="text" class="form-control" name="max"
+                       @if(isset($params['max'])) value="{{ $params['max'] }}" @endif placeholder="please enter max">
             </div>
             <div class="form-group">
                 {{--            <label for="id">Name</label>--}}
                 <select class="form-control" name="order">
-                    <option value="desc"  @if(isset($params['order']) && $params['order'] == 'desc') selected @endif>desc</option>
-                    <option value="asc"  @if(isset($params['order']) && $params['order'] == 'asc') selected @endif>asc</option>
+                    <option value="0">select order type</option>
+                    <option value="desc" @if(isset($params['order']) && $params['order'] == 'desc') selected @endif>
+                        desc
+                    </option>
+                    <option value="asc" @if(isset($params['order']) && $params['order'] == 'asc') selected @endif>asc
+                    </option>
                 </select>
             </div>
             <div class="form-group">
-                <select class="form-control">
-                    <option value="">by rent cost</option>
-                    <option value="">by cost per square weter</option>
-                    <option value="">by description statistics</option>
+                <select class="form-control" name="list_type">
+                    <option value="0">select list type</option>
+                    <option value="1" @if(isset($params['list_type']) && $params['list_type'] == '1') selected @endif>by rent cost</option>
+                    <option value="2" @if(isset($params['list_type']) && $params['list_type'] == '2') selected @endif>by cost per square meter</option>
+                    <option value="3" @if(isset($params['list_type']) && $params['list_type'] == '3') selected @endif>by descriptive statistic</option>
                 </select>
                 {{--            <label for="id">Name</label>--}}
-{{--                <input type="text" class="form-control" name="list_type"  @if(isset($params['list_type'])) value="{{ $params['list_type'] }}" @endif placeholder="please enter list_type">--}}
+                {{--                <input type="text" class="form-control" name="list_type"  @if(isset($params['list_type'])) value="{{ $params['list_type'] }}" @endif placeholder="please enter list_type">--}}
             </div>
             <button type="submit" class="btn btn-default">Search</button>
             <form action="create" method="get">
@@ -77,15 +103,26 @@
             </form>
         </form>
     </div>
+    @if(isset($rentAvg))
+        <p class="card-text" style="margin: 20px;text-align: center">
+            City: {{ $params['city'] }} ; rent avg：{{ $rentAvg }} ; rent middle：{{ $middleNum }} ;rent standard deviation：{{ $standard }};
+            deposit avg：{{ $depositAvg }} ; deposit middle：{{ $depositMiddleNum }} ;deposit standard deviation：{{ $depositBiaozhunReAvg }}
+        </p>
+    @endif
     @foreach($lists as $list)
-    <div class="row">
+        <div class="row">
             <div class="card mb-3">
                 <div class="row no-gutters" style="margin: 20px">
                     <div class="col-md-4">
-                        <img src="{{ $list->coverImageUrl ?? 'https://resources.kamernet.nl/Content/images/placeholder/no-pic-advert.png' }}" class="card-img" style="height:200px;width: 100%">
+                        <img
+                            src="{{ $list->coverImageUrl ?? 'https://resources.kamernet.nl/Content/images/placeholder/no-pic-advert.png' }}"
+                            class="card-img" style="height:200px;width: 100%">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body" style="width: 100%">
+{{--                            <p>--}}
+{{--                                aqm : {{ $list->aqm }}--}}
+{{--                            </p>--}}
                             <p class="card-text">
                                 externalId: {{ $list->externalId }}
                             </p>
@@ -206,10 +243,12 @@
                 </div>
             </div>
 
-    </div>
+        </div>
     @endforeach
     <div class="row" style="margin: 20px;float: right">
-        {{ $lists->links() }}
+        @if(!isset($by_square))
+            {{ $lists->appends(['top' => isset($params['top']) ?$params['top']: 10])->links() ?? null }}
+        @endif
     </div>
 </div>
 

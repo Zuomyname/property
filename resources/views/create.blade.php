@@ -34,10 +34,10 @@
                 <label for="id">externalId</label>
                 <input type="text" id="externalId" class="form-control" name="externalId" placeholder="please enter externalId">
             </div>
-            <div class="form-group">
-                <label for="id">areaRaw</label>
-                <input type="text" class="form-control" name="areaRaw" placeholder="areaRaw">
-            </div>
+{{--            <div class="form-group">--}}
+{{--                <label for="id">areaRaw</label>--}}
+{{--                <input type="text" class="form-control" name="areaRaw" placeholder="areaRaw">--}}
+{{--            </div>--}}
             <div class="form-group">
                 <label for="id">areaSqm</label>
                 <input type="text" class="form-control" name="areaSqm" placeholder="areaSqm">
@@ -82,10 +82,10 @@
                 <label for="id">rentDetail</label>
                 <input type="text" class="form-control" name="rentDetail" placeholder="please enter rentDetail">
             </div>
-            <div class="form-group">
-                <label for="id">rentRaw</label>
-                <input type="text" class="form-control" name="rentRaw" placeholder="please enter rentRaw">
-            </div>
+{{--            <div class="form-group">--}}
+{{--                <label for="id">rentRaw</label>--}}
+{{--                <input type="text" class="form-control" name="rentRaw" placeholder="please enter rentRaw">--}}
+{{--            </div>--}}
             <div class="form-group">
                 <label for="id">title</label>
                 <input type="text" class="form-control" name="title" placeholder="please enter title">
@@ -93,13 +93,15 @@
             <div class="form-group">
                 <label for="id">additionalCostsRaw</label>
                 <input type="text" class="form-control" name="additionalCostsRaw" placeholder="please enter additionalCostsRaw">
-            </div><div class="form-group">
+            </div>
+            <div class="form-group">
                 <label for="id">deposit</label>
                 <input type="text" class="form-control" name="deposit" placeholder="please enter deposit">
-            </div><div class="form-group">
-                <label for="id">depositRaw</label>
-                <input type="text" class="form-control" name="depositRaw" placeholder="please enter depositRaw">
             </div>
+{{--            <div class="form-group">--}}
+{{--                <label for="id">depositRaw</label>--}}
+{{--                <input type="text" class="form-control" name="depositRaw" placeholder="please enter depositRaw">--}}
+{{--            </div>--}}
             <div class="form-group">
                 <label for="id">descriptionNonTranslated</label>
                 <input type="text" class="form-control" name="descriptionNonTranslated" placeholder="please enter descriptionNonTranslated">

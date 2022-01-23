@@ -22,9 +22,6 @@
 <div class="container">
     <div class="col-md-4">
         <img src="{{ $list->coverImageUrl ?? 'https://resources.kamernet.nl/Content/images/placeholder/no-pic-advert.png' }}" class="card-img" style="height:200px;width: 100%;margin: 10px">
-        <img src="{{ $list->url ?? 'https://resources.kamernet.nl/Content/images/placeholder/no-pic-advert.png' }}" class="card-img" style="height:200px;width: 100%;margin: 10px">
-        <img src="{{ $list->userPhotoUrl ?? 'https://resources.kamernet.nl/Content/images/placeholder/no-pic-advert.png' }}" class="card-img" style="height:200px;width: 100%;margin: 10px">
-        <img src="{{ $list->coverImageUrl ?? 'https://resources.kamernet.nl/Content/images/placeholder/no-pic-advert.png' }}" class="card-img" style="height:200px;width: 100%;margin: 10px">
     </div>
     <div class="form col-md-8">
         <form action="/edit" method="post">
